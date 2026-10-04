@@ -1,0 +1,675 @@
+{
+  "version": 1,
+  "policy": "Frozen before runs; generator never receives this rubric",
+  "scenarios": {
+    "A": [
+      {
+        "step": 1,
+        "message": "Цель: составить план фоновой синхронизации Android-приложения.",
+        "expected_status": "clarification",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ]
+        },
+        "explanation": "Память содержит цель фоновой синхронизации.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 2,
+        "message": "Уточнение: аудитория — начинающие Android-разработчики.",
+        "expected_status": "clarification",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ],
+          "clarifications": [
+            "начинающ"
+          ]
+        },
+        "explanation": "Добавлена аудитория, цель сохранена.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 3,
+        "message": "Ограничение бюджета: без платных сервисов.",
+        "expected_status": "clarification",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ],
+          "clarifications": [
+            "начинающ"
+          ],
+          "constraints": [
+            "платн"
+          ]
+        },
+        "explanation": "Добавлен запрет платных сервисов.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 4,
+        "message": "Техническое ограничение: язык Kotlin.",
+        "expected_status": "clarification",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ],
+          "clarifications": [
+            "начинающ"
+          ],
+          "constraints": [
+            "платн",
+            "kotlin"
+          ]
+        },
+        "explanation": "Kotlin и бюджет сохранены одновременно.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 5,
+        "message": "Для этой цели сравни два варианта в таком порядке: 1) обычная корутина, 2) WorkManager.",
+        "expected_status": "document",
+        "expected_facts": [
+          "WorkManager"
+        ],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ],
+          "clarifications": [
+            "начинающ"
+          ],
+          "constraints": [
+            "платн",
+            "kotlin"
+          ]
+        },
+        "explanation": "Сопоставлены корутина и WorkManager в заданном порядке; факты подтверждены.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 6,
+        "message": "А второй вариант переживёт перезапуск приложения и устройства?",
+        "expected_status": "document",
+        "expected_facts": [
+          "WorkManager"
+        ],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ],
+          "clarifications": [
+            "начинающ"
+          ],
+          "constraints": [
+            "платн",
+            "kotlin"
+          ]
+        },
+        "explanation": "Второй вариант — WorkManager; документы подтверждают переживание перезапусков.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [
+          "workmanager"
+        ],
+        "removed_memory": []
+      },
+      {
+        "step": 7,
+        "message": "Сравни его с первым по надёжности после перезапуска.",
+        "expected_status": "document",
+        "expected_facts": [
+          "WorkManager"
+        ],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ],
+          "clarifications": [
+            "начинающ"
+          ],
+          "constraints": [
+            "платн",
+            "kotlin"
+          ]
+        },
+        "explanation": "Первый — корутина, второй — WorkManager; никаких обещаний SLA.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 8,
+        "message": "Побочный вопрос: что делает категория BROWSABLE для deep link?",
+        "expected_status": "document",
+        "expected_facts": [
+          "BROWSABLE"
+        ],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ],
+          "clarifications": [
+            "начинающ"
+          ],
+          "constraints": [
+            "платн",
+            "kotlin"
+          ]
+        },
+        "explanation": "Открытие из браузера подтверждено; цель фоновой синхронизации не меняется.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 9,
+        "message": "Вернёмся к плану фоновой синхронизации. Какой механизм подходит?",
+        "expected_status": "document",
+        "expected_facts": [
+          "WorkManager"
+        ],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ],
+          "clarifications": [
+            "начинающ"
+          ],
+          "constraints": [
+            "платн",
+            "kotlin"
+          ]
+        },
+        "explanation": "Возврат к исходной цели, Kotlin и запрет платных сервисов остаются.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 10,
+        "message": "Составь итоговый план фоновой синхронизации по документам с учётом моих требований.",
+        "expected_status": "document",
+        "expected_facts": [
+          "WorkManager"
+        ],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ],
+          "clarifications": [
+            "начинающ"
+          ],
+          "constraints": [
+            "платн",
+            "kotlin"
+          ]
+        },
+        "explanation": "План опирается на документы и актуальную память; стоимость/сроки не выдуманы.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 11,
+        "message": "Сократи этот план до трёх пунктов.",
+        "expected_status": "document",
+        "expected_facts": [
+          "WorkManager"
+        ],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ],
+          "clarifications": [
+            "начинающ"
+          ],
+          "constraints": [
+            "платн",
+            "kotlin"
+          ]
+        },
+        "explanation": "Три пункта сохраняют цель и ограничения, утверждения имеют цитаты.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 12,
+        "message": "Какие мои требования были учтены?",
+        "expected_status": "clarification",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "фон",
+            "синхрон"
+          ],
+          "clarifications": [
+            "начинающ"
+          ],
+          "constraints": [
+            "платн",
+            "kotlin"
+          ]
+        },
+        "explanation": "Перечислены цель, аудитория, Kotlin и бюджет из памяти, без фиктивных источников.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      }
+    ],
+    "B": [
+      {
+        "step": 1,
+        "message": "Цель: выбрать способ сохранения состояния формы в Android.",
+        "expected_status": "clarification",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ]
+        },
+        "explanation": "Новая независимая цель сохранения состояния.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 2,
+        "message": "Ограничение: достаточно сохранять состояние при повороте экрана, переживать смерть процесса пока не требуется.",
+        "expected_status": "clarification",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ],
+          "constraints": [
+            "поворот"
+          ]
+        },
+        "explanation": "Зафиксировано требование только конфигурационных изменений.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 3,
+        "message": "Термин: «черновик» — текст поля ввода. Уточнение: аудитория — начинающие разработчики.",
+        "expected_status": "clarification",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ],
+          "constraints": [
+            "поворот"
+          ],
+          "terms": [
+            "черновик",
+            "текст"
+          ],
+          "clarifications": [
+            "начинающ"
+          ]
+        },
+        "explanation": "Термин и отдельное уточнение аудитории сохранены.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 4,
+        "message": "Что рекомендуешь для сохранения черновика при повороте экрана?",
+        "expected_status": "document",
+        "expected_facts": [
+          "ViewModel"
+        ],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ],
+          "constraints": [
+            "поворот"
+          ],
+          "terms": [
+            "черновик",
+            "текст"
+          ],
+          "clarifications": [
+            "начинающ"
+          ]
+        },
+        "explanation": "Рекомендация ViewModel с документальными доказательствами.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 5,
+        "message": "Меняю прежнее ограничение: теперь черновик должен переживать смерть процесса, а не только поворот экрана.",
+        "expected_status": "clarification",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ],
+          "constraints": [
+            "смерт",
+            "процесс"
+          ],
+          "terms": [
+            "черновик",
+            "текст"
+          ],
+          "clarifications": [
+            "начинающ"
+          ]
+        },
+        "explanation": "Старое ограничение заменено, не оставлено вторым активным.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 6,
+        "message": "Как сохранить черновик с новым требованием?",
+        "expected_status": "document",
+        "expected_facts": [
+          "SavedStateHandle"
+        ],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ],
+          "constraints": [
+            "смерт",
+            "процесс"
+          ],
+          "terms": [
+            "черновик",
+            "текст"
+          ],
+          "clarifications": [
+            "начинающ"
+          ]
+        },
+        "explanation": "Новое требование учтено: SavedStateHandle, а не обычное поле ViewModel.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": []
+      },
+      {
+        "step": 7,
+        "message": "Забудь только уточнение об аудитории. Термин «черновик» и остальные требования оставь.",
+        "expected_status": "clarification",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ],
+          "constraints": [
+            "смерт",
+            "процесс"
+          ],
+          "terms": [
+            "черновик",
+            "текст"
+          ]
+        },
+        "explanation": "Забыто только уточнение об аудитории, термин и новое ограничение остаются.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": [
+          "аудитор",
+          "начинающ"
+        ]
+      },
+      {
+        "step": 8,
+        "message": "Продолжай: как выбранный способ связан с ViewModel?",
+        "expected_status": "document",
+        "expected_facts": [
+          "SavedStateHandle"
+        ],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ],
+          "constraints": [
+            "смерт",
+            "процесс"
+          ],
+          "terms": [
+            "черновик",
+            "текст"
+          ]
+        },
+        "explanation": "Продолжение использует актуальную память.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": [
+          "аудитор",
+          "начинающ"
+        ]
+      },
+      {
+        "step": 9,
+        "message": "Какой точный SLA восстановления черновиков принят в нашей команде Orion?",
+        "expected_status": "insufficient_context",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ],
+          "constraints": [
+            "смерт",
+            "процесс"
+          ],
+          "terms": [
+            "черновик",
+            "текст"
+          ]
+        },
+        "explanation": "В корпусе нет SLA команды Orion; отказ без источников.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": [
+          "аудитор",
+          "начинающ"
+        ]
+      },
+      {
+        "step": 10,
+        "message": "Уточняю: нужен именно SLA команды Orion в миллисекундах для Android 15.",
+        "expected_status": "insufficient_context",
+        "expected_facts": [],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ],
+          "constraints": [
+            "смерт",
+            "процесс"
+          ],
+          "terms": [
+            "черновик",
+            "текст"
+          ]
+        },
+        "explanation": "Уточнение не создаёт отсутствующий факт; повторный корректный отказ.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": [
+          "аудитор",
+          "начинающ"
+        ]
+      },
+      {
+        "step": 11,
+        "message": "Вернёмся к документам: что сохраняет SavedStateHandle после смерти процесса?",
+        "expected_status": "document",
+        "expected_facts": [
+          "SavedStateHandle"
+        ],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ],
+          "constraints": [
+            "смерт",
+            "процесс"
+          ],
+          "terms": [
+            "черновик",
+            "текст"
+          ]
+        },
+        "explanation": "После отказов диалог продолжается с источниками.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": [
+          "аудитор",
+          "начинающ"
+        ]
+      },
+      {
+        "step": 12,
+        "message": "Подведи итог выбора для черновика с учётом актуальных требований.",
+        "expected_status": "document",
+        "expected_facts": [
+          "SavedStateHandle"
+        ],
+        "expected_memory": {
+          "goal": [
+            "сохран",
+            "состояни"
+          ],
+          "constraints": [
+            "смерт",
+            "процесс"
+          ],
+          "terms": [
+            "черновик",
+            "текст"
+          ]
+        },
+        "explanation": "Итог учитывает смерть процесса и термин; забытая аудитория не возвращается.",
+        "forbidden_claims": [
+          "точный SLA команды Orion известен",
+          "обычное поле ViewModel переживает смерть процесса"
+        ],
+        "rewritten_must_include": [],
+        "removed_memory": [
+          "аудитор",
+          "начинающ"
+        ]
+      }
+    ]
+  }
+}

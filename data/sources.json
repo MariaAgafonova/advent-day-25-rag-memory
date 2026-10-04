@@ -1,0 +1,65 @@
+[
+  {
+    "path": "lifecycle.md",
+    "title": "The activity lifecycle Stay organized with collections Save and categorize content based on your preferences.",
+    "url": "https://developer.android.com/guide/components/activities/activity-lifecycle",
+    "retrieved_at": "2026-10-01T15:59:50.220366+00:00",
+    "language": "en",
+    "license": "CC BY 4.0 (text), Apache 2.0 (code)",
+    "publisher": "Google / Android Developers"
+  },
+  {
+    "path": "viewmodel.md",
+    "title": "ViewModel overview Part of Android Jetpack .",
+    "url": "https://developer.android.com/topic/libraries/architecture/viewmodel",
+    "retrieved_at": "2026-10-01T15:59:51.308697+00:00",
+    "language": "en",
+    "license": "CC BY 4.0 (text), Apache 2.0 (code)",
+    "publisher": "Google / Android Developers"
+  },
+  {
+    "path": "coroutines.md",
+    "title": "Kotlin coroutines on Android Stay organized with collections Save and categorize content based on your preferences.",
+    "url": "https://developer.android.com/kotlin/coroutines",
+    "retrieved_at": "2026-10-01T15:59:52.208779+00:00",
+    "language": "en",
+    "license": "CC BY 4.0 (text), Apache 2.0 (code)",
+    "publisher": "Google / Android Developers"
+  },
+  {
+    "path": "workmanager.md",
+    "title": "Task scheduling Stay organized with collections Save and categorize content based on your preferences.",
+    "url": "https://developer.android.com/develop/background-work/background-tasks/persistent",
+    "retrieved_at": "2026-10-01T15:59:52.908609+00:00",
+    "language": "en",
+    "license": "CC BY 4.0 (text), Apache 2.0 (code)",
+    "publisher": "Google / Android Developers"
+  },
+  {
+    "path": "deep-links.md",
+    "title": "Create deep links Stay organized with collections Save and categorize content based on your preferences.",
+    "url": "https://developer.android.com/training/app-links/deep-linking",
+    "retrieved_at": "2026-10-01T15:59:54.007477+00:00",
+    "language": "en",
+    "license": "CC BY 4.0 (text), Apache 2.0 (code)",
+    "publisher": "Google / Android Developers"
+  },
+  {
+    "path": "architecture.md",
+    "title": "Guide to app architecture Stay organized with collections Save and categorize content based on your preferences.",
+    "url": "https://developer.android.com/topic/architecture",
+    "retrieved_at": "2026-10-01T15:59:54.799382+00:00",
+    "language": "en",
+    "license": "CC BY 4.0 (text), Apache 2.0 (code)",
+    "publisher": "Google / Android Developers"
+  },
+  {
+    "path": "fragment-lifecycle.md",
+    "title": "Fragment lifecycle",
+    "url": "https://developer.android.com/guide/fragments/lifecycle",
+    "retrieved_at": "2026-10-04T20:43:18.932311+00:00",
+    "language": "en",
+    "license": "CC BY 4.0 (text), Apache 2.0 (code)",
+    "publisher": "Google / Android Developers"
+  }
+]

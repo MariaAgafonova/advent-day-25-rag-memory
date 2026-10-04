@@ -1,0 +1,370 @@
+{
+  "version": 2,
+  "created_at": "2026-10-01T20:52:25.631293+00:00",
+  "corpus_hash": "d49278fe920127948b4d5207990dec7f26a7f2230c74c0aa5b7f6984b32bc34d",
+  "method": "Day 24 rubric frozen before generation; inherited evidence and expected facts unchanged",
+  "questions": [
+    {
+      "id": "q01",
+      "question": "Какой механизм Android подходит для фоновой задачи, которая должна пережить перезапуск приложения и устройства?",
+      "category": "fact",
+      "answerable_from_corpus": true,
+      "expected_behavior": "Ответить по доказательствам, не добавляя неподтверждённых фактов",
+      "expected_facts": [
+        {
+          "id": "f1",
+          "description": "Для такой надёжной фоновой работы подходит WorkManager",
+          "weight": 1
+        },
+        {
+          "id": "f2",
+          "description": "Работа сохраняется через перезапуски приложения и устройства",
+          "weight": 1
+        }
+      ],
+      "forbidden_claims": [
+        "Обычной корутины достаточно для переживания перезагрузки"
+      ],
+      "expected_sources": [
+        {
+          "source": "workmanager.md",
+          "document_hash": "a6134ebf93b9571711e86662c35ce2c8ba08f3a80b0b2878ce4c74f3ab942708",
+          "start_char": 106,
+          "end_char": 411,
+          "evidence_excerpt": "When you want to execute tasks that will continue to run even if the app leaves\nthe visible state, we recommend using the Jetpack library [WorkManager](/reference/androidx/work/WorkManager).\nWorkManager features a robust scheduling mechanism that lets tasks persist\nacross app restarts and device reboots."
+        }
+      ],
+      "answerable": true,
+      "expected_status": "answered",
+      "acceptable_clarifications": [
+        "Уточнить тему или название документа",
+        "Уточнить компонент или версию, если отсутствует в вопросе"
+      ]
+    },
+    {
+      "id": "q02",
+      "question": "Что позволяет сохранить UI state не только при повороте экрана, но и после смерти процесса?",
+      "category": "fact",
+      "answerable_from_corpus": true,
+      "expected_behavior": "Ответить по доказательствам, не добавляя неподтверждённых фактов",
+      "expected_facts": [
+        {
+          "id": "f1",
+          "description": "SavedStateHandle предназначен для сохранения состояния через смерть процесса",
+          "weight": 1
+        }
+      ],
+      "forbidden_claims": [
+        "Любое поле обычного ViewModel автоматически сохраняется после смерти процесса"
+      ],
+      "expected_sources": [
+        {
+          "source": "viewmodel.md",
+          "document_hash": "3e3a03daf6e573ec96e0f9d5570c877e81921cb0eb3e06fc9d1d8364b2589e4b",
+          "start_char": 4585,
+          "end_char": 4863,
+          "evidence_excerpt": "[SavedStateHandle](/topic/libraries/architecture/viewmodel/viewmodel-savedstate) lets you persist data not just through configuration\nchanges, but across process death. That is, it lets you keep the UI\nstate intact even when the user closes the app and opens it at a later time."
+        }
+      ],
+      "answerable": true,
+      "expected_status": "answered",
+      "acceptable_clarifications": [
+        "Уточнить тему или название документа",
+        "Уточнить компонент или версию, если отсутствует в вопросе"
+      ]
+    },
+    {
+      "id": "q03",
+      "question": "Зачем в intent filter для deep link нужна категория BROWSABLE?",
+      "category": "fact",
+      "answerable_from_corpus": true,
+      "expected_behavior": "Ответить по доказательствам, не добавляя неподтверждённых фактов",
+      "expected_facts": [
+        {
+          "id": "f1",
+          "description": "BROWSABLE позволяет открыть Activity через ссылку из браузера",
+          "weight": 1
+        }
+      ],
+      "forbidden_claims": [
+        "BROWSABLE не нужен для открытия ссылки из браузера"
+      ],
+      "expected_sources": [
+        {
+          "source": "deep-links.md",
+          "document_hash": "e3286340cc28e6cad667bd2ab98531a6f5600909edd5e853638463bffc29ae63",
+          "start_char": 5333,
+          "end_char": 5574,
+          "evidence_excerpt": "Include the [`BROWSABLE`](/reference/android/content/Intent#CATEGORY_BROWSABLE) category. It is required in order for the intent\nfilter to be accessible from a web browser. Without it, clicking a link in a\nbrowser cannot resolve to your app."
+        }
+      ],
+      "answerable": true,
+      "expected_status": "answered",
+      "acceptable_clarifications": [
+        "Уточнить тему или название документа",
+        "Уточнить компонент или версию, если отсутствует в вопросе"
+      ]
+    },
+    {
+      "id": "q04",
+      "question": "Почему нельзя выполнять сохранение данных и сетевые запросы в onPause?",
+      "category": "fact",
+      "answerable_from_corpus": true,
+      "expected_behavior": "Ответить по доказательствам, не добавляя неподтверждённых фактов",
+      "expected_facts": [
+        {
+          "id": "f1",
+          "description": "onPause выполняется очень кратко",
+          "weight": 1
+        },
+        {
+          "id": "f2",
+          "description": "Сохранение, сетевые запросы и транзакции могут не завершиться вовремя",
+          "weight": 1
+        }
+      ],
+      "forbidden_claims": [
+        "onPause гарантирует завершение любой транзакции"
+      ],
+      "expected_sources": [
+        {
+          "source": "lifecycle.md",
+          "document_hash": "1e978f5304640902341442e6de7d592b0121539e8e1a70e2eb8ee039227e64c9",
+          "start_char": 15384,
+          "end_char": 15675,
+          "evidence_excerpt": "`onPause` execution is very brief and does not necessarily offer enough time to\nperform save operations. For this reason, **don't** use `onPause` to save\napplication or user data, make network calls, or execute database transactions.\nSuch work might not complete before the method completes."
+        }
+      ],
+      "answerable": true,
+      "expected_status": "answered",
+      "acceptable_clarifications": [
+        "Уточнить тему или название документа",
+        "Уточнить компонент или версию, если отсутствует в вопросе"
+      ]
+    },
+    {
+      "id": "q05",
+      "question": "Как организовать владение данными, чтобы другие компоненты не могли произвольно менять общее состояние?",
+      "category": "paraphrase",
+      "answerable_from_corpus": true,
+      "expected_behavior": "Ответить по доказательствам, не добавляя неподтверждённых фактов",
+      "expected_facts": [
+        {
+          "id": "f1",
+          "description": "Назначить единственный источник истины — владельца данных",
+          "weight": 1
+        },
+        {
+          "id": "f2",
+          "description": "Выдавать неизменяемые данные, а изменения проводить через функции или события владельца",
+          "weight": 1
+        }
+      ],
+      "forbidden_claims": [
+        "Каждый компонент должен напрямую менять общие данные"
+      ],
+      "expected_sources": [
+        {
+          "source": "architecture.md",
+          "document_hash": "70507cd30122c51f6ae31700616d7f78005e6c26faf5bdb700431e5cb27a0259",
+          "start_char": 4604,
+          "end_char": 4936,
+          "evidence_excerpt": "When a new data type is defined in your app, assign a single source\nof truth (SSOT) to it. The SSOT is the *owner* of that data, and only the SSOT\ncan modify or mutate it. To achieve this, the SSOT exposes the data using an\nimmutable type; to modify the data, the SSOT exposes functions or receives\nevents that other types can call."
+        }
+      ],
+      "answerable": true,
+      "expected_status": "answered",
+      "acceptable_clarifications": [
+        "Уточнить тему или название документа",
+        "Уточнить компонент или версию, если отсутствует в вопросе"
+      ]
+    },
+    {
+      "id": "q06",
+      "question": "Как сделать функцию сетевого входа безопасной для плавности интерфейса при вызове с главного потока?",
+      "category": "paraphrase",
+      "answerable_from_corpus": true,
+      "expected_behavior": "Ответить по доказательствам, не добавляя неподтверждённых фактов",
+      "expected_facts": [
+        {
+          "id": "f1",
+          "description": "Не блокировать обновления UI на главном потоке",
+          "weight": 1
+        },
+        {
+          "id": "f2",
+          "description": "Перенести работу через withContext на другой поток",
+          "weight": 1
+        }
+      ],
+      "forbidden_claims": [
+        "Одна пометка suspend автоматически переносит код на другой поток"
+      ],
+      "expected_sources": [
+        {
+          "source": "coroutines.md",
+          "document_hash": "64a449e92928f5ad1df33c5e5c5cba0c4097944546bb2f17d4fa469cbccfa14a",
+          "start_char": 7178,
+          "end_char": 7506,
+          "evidence_excerpt": "We consider a function *main-safe* when it doesn't block UI updates on the\nmain thread. The `makeLoginRequest` function is not main-safe, as calling\n`makeLoginRequest` from the main thread does block the UI. Use the\n`withContext()` function from the coroutines library to move the execution\nof a coroutine to a different thread:"
+        }
+      ],
+      "answerable": true,
+      "expected_status": "answered",
+      "acceptable_clarifications": [
+        "Уточнить тему или название документа",
+        "Уточнить компонент или версию, если отсутствует в вопросе"
+      ]
+    },
+    {
+      "id": "q07",
+      "question": "Чем отличается срок жизни работы в viewModelScope от фоновой задачи WorkManager при уходе с экрана и перезапуске устройства?",
+      "category": "synthesis",
+      "answerable_from_corpus": true,
+      "expected_behavior": "Ответить по доказательствам, не добавляя неподтверждённых фактов",
+      "expected_facts": [
+        {
+          "id": "f1",
+          "description": "viewModelScope отменяется при уничтожении ViewModel",
+          "weight": 1
+        },
+        {
+          "id": "f2",
+          "description": "WorkManager сохраняет задачи через перезапуски приложения и устройства",
+          "weight": 1
+        }
+      ],
+      "forbidden_claims": [
+        "viewModelScope всегда переживает перезагрузку устройства"
+      ],
+      "expected_sources": [
+        {
+          "source": "coroutines.md",
+          "document_hash": "64a449e92928f5ad1df33c5e5c5cba0c4097944546bb2f17d4fa469cbccfa14a",
+          "start_char": 6632,
+          "end_char": 6913,
+          "evidence_excerpt": "Since this coroutine is started with `viewModelScope`, it is executed in\nthe scope of the `ViewModel`. If the `ViewModel` is destroyed because the\nuser is navigating away from the screen, `viewModelScope` is automatically\ncancelled, and all running coroutines are canceled as well."
+        },
+        {
+          "source": "workmanager.md",
+          "document_hash": "a6134ebf93b9571711e86662c35ce2c8ba08f3a80b0b2878ce4c74f3ab942708",
+          "start_char": 106,
+          "end_char": 411,
+          "evidence_excerpt": "When you want to execute tasks that will continue to run even if the app leaves\nthe visible state, we recommend using the Jetpack library [WorkManager](/reference/androidx/work/WorkManager).\nWorkManager features a robust scheduling mechanism that lets tasks persist\nacross app restarts and device reboots."
+        }
+      ],
+      "answerable": true,
+      "expected_status": "answered",
+      "acceptable_clarifications": [
+        "Уточнить тему или название документа",
+        "Уточнить компонент или версию, если отсутствует в вопросе"
+      ]
+    },
+    {
+      "id": "q08",
+      "question": "Как сочетать сохранение состояния при повороте экрана и восстановление после смерти процесса: какую роль играют ViewModel и SavedStateHandle?",
+      "category": "synthesis",
+      "answerable_from_corpus": true,
+      "expected_behavior": "Ответить по доказательствам, не добавляя неподтверждённых фактов",
+      "expected_facts": [
+        {
+          "id": "f1",
+          "description": "ViewModel сохраняет состояние и работу через изменения конфигурации",
+          "weight": 1
+        },
+        {
+          "id": "f2",
+          "description": "Для сохранения UI state через смерть процесса используется SavedStateHandle",
+          "weight": 1
+        }
+      ],
+      "forbidden_claims": [
+        "ViewModel сам сохраняет любые объекты в постоянное хранилище"
+      ],
+      "expected_sources": [
+        {
+          "source": "viewmodel.md",
+          "document_hash": "3e3a03daf6e573ec96e0f9d5570c877e81921cb0eb3e06fc9d1d8364b2589e4b",
+          "start_char": 2501,
+          "end_char": 2746,
+          "evidence_excerpt": "ViewModel allows persistence through both the state that a ViewModel holds, and\nthe operations that a ViewModel triggers. This caching means that you don't have\nto fetch data again through common configuration changes, such as a screen\nrotation."
+        },
+        {
+          "source": "viewmodel.md",
+          "document_hash": "3e3a03daf6e573ec96e0f9d5570c877e81921cb0eb3e06fc9d1d8364b2589e4b",
+          "start_char": 4585,
+          "end_char": 4863,
+          "evidence_excerpt": "[SavedStateHandle](/topic/libraries/architecture/viewmodel/viewmodel-savedstate) lets you persist data not just through configuration\nchanges, but across process death. That is, it lets you keep the UI\nstate intact even when the user closes the app and opens it at a later time."
+        }
+      ],
+      "answerable": true,
+      "expected_status": "answered",
+      "acceptable_clarifications": [
+        "Уточнить тему или название документа",
+        "Уточнить компонент или версию, если отсутствует в вопросе"
+      ]
+    },
+    {
+      "id": "q09",
+      "question": "Почему обычный ViewModel автоматически сохраняет все свои поля после смерти процесса без SavedStateHandle?",
+      "category": "false_premise",
+      "answerable_from_corpus": true,
+      "expected_behavior": "Не принять ложную предпосылку; объяснить различие по источникам",
+      "expected_facts": [
+        {
+          "id": "f1",
+          "description": "Отвергнуть предпосылку об автоматическом сохранении всех полей",
+          "weight": 1
+        },
+        {
+          "id": "f2",
+          "description": "Различить изменения конфигурации и смерть процесса; указать SavedStateHandle",
+          "weight": 1
+        }
+      ],
+      "forbidden_claims": [
+        "Подтвердить автоматическое сохранение всех полей обычного ViewModel через смерть процесса"
+      ],
+      "expected_sources": [
+        {
+          "source": "viewmodel.md",
+          "document_hash": "3e3a03daf6e573ec96e0f9d5570c877e81921cb0eb3e06fc9d1d8364b2589e4b",
+          "start_char": 2501,
+          "end_char": 2746,
+          "evidence_excerpt": "ViewModel allows persistence through both the state that a ViewModel holds, and\nthe operations that a ViewModel triggers. This caching means that you don't have\nto fetch data again through common configuration changes, such as a screen\nrotation."
+        },
+        {
+          "source": "viewmodel.md",
+          "document_hash": "3e3a03daf6e573ec96e0f9d5570c877e81921cb0eb3e06fc9d1d8364b2589e4b",
+          "start_char": 4585,
+          "end_char": 4863,
+          "evidence_excerpt": "[SavedStateHandle](/topic/libraries/architecture/viewmodel/viewmodel-savedstate) lets you persist data not just through configuration\nchanges, but across process death. That is, it lets you keep the UI\nstate intact even when the user closes the app and opens it at a later time."
+        }
+      ],
+      "answerable": true,
+      "expected_status": "answered",
+      "acceptable_clarifications": [
+        "Уточнить тему или название документа",
+        "Уточнить компонент или версию, если отсутствует в вопросе"
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "Какой SLA доставки фоновых задач принят в моей команде и какое точное значение таймаута мы установили в production?",
+      "category": "insufficient",
+      "answerable_from_corpus": false,
+      "expected_behavior": "Для RAG: сообщить о недостаточности предоставленного контекста, не выдумывать SLA. Без RAG: оценить ответ самостоятельно; отсутствие сведений в корпусе не означает, что модель не может знать ответ.",
+      "expected_facts": [],
+      "forbidden_claims": [
+        "Придумать SLA или числовое значение production-таймаута",
+        "Утверждать, что просмотрена вся база или настройки моей команды"
+      ],
+      "expected_sources": [],
+      "answerable": false,
+      "expected_status": "insufficient_context",
+      "acceptable_clarifications": [
+        "Уточнить команду и предоставить документ с её SLA и настройками"
+      ]
+    }
+  ]
+}

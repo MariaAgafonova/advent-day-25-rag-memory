@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "document-indexer"
+version = "0.5.0"
+requires-python = ">=3.11,<3.12"
+dependencies = ["sentence-transformers>=3.4,<4", "transformers>=4.48,<5", "numpy>=1.26,<3", "PyMuPDF>=1.25,<2", "streamlit>=1.42,<2", "requests>=2.32,<3", "python-dotenv>=1,<2", "tiktoken>=0.9,<1"]
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+corpus = ["beautifulsoup4>=4.12,<5", "markdownify>=1.1,<2", "requests>=2.32,<3"]
+[project.scripts]
+document-indexer = "document_indexer.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: requires real E5 model"]
+addopts = "-m 'not integration'"

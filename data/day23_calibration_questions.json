@@ -1,0 +1,14 @@
+{
+  "version": "day23-calibration-v1",
+  "description": "Независимые вопросы; пары размечает пользователь по тексту чанков до основного эксперимента.",
+  "questions": [
+    {"id": "cal01", "question": "Подскажи, в каком callback Activity обычно освобождает ресурсы, когда больше не видна пользователю?", "category": "paraphrase"},
+    {"id": "cal02", "question": "Можно объяснить, кто владеет ViewModel и в какой момент она окончательно очищается?", "category": "paraphrase"},
+    {"id": "cal03", "question": "Как описать в manifest адреса, по которым Android открывает нужную Activity через deep link?", "category": "paraphrase"},
+    {"id": "cal04", "question": "Зачем в Android отделять слой данных от слоя интерфейса и что должен делать repository?", "category": "paraphrase"},
+    {"id": "cal05", "question": "Как настроить миграцию таблиц Room с версии 7 на 8 без потери данных?", "category": "near_miss"},
+    {"id": "cal06", "question": "Как в WorkManager настроить TLS pinning для HTTPS-соединения с сервером?", "category": "near_miss"},
+    {"id": "cal07", "question": "Какова точная стоимость обслуживания нашего production Kubernetes-кластера за сентябрь 2026?", "category": "unanswerable"},
+    {"id": "cal08", "question": "Какой пароль администратора у сервера проекта Document Indexer?", "category": "unanswerable"}
+  ]
+}
